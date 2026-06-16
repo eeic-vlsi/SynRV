@@ -80,7 +80,7 @@ module decoder (
     // alu_op_sel
     always_comb begin
         unique case (op_code)
-            OPIMM, LUI, LOAD, STORE, JALR: begin
+            OPIMM, LUI, LOAD, STORE: begin
                 alu_op1_sel = ALU_OP1_RS1;
                 alu_op2_sel = ALU_OP2_IMM;
             end
