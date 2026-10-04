@@ -7,13 +7,18 @@ module imem (
 );
 
     logic [31:0] mem [0:255];
+    logic [30:0] addr_sync;
 
     // store
     always_ff @(posedge clk) begin
         if (wr_en) mem[addr[31:2]] <= wr_data;
     end
 
-    // load
-    assign rd_data = mem[addr[31:2]];
+    // load    
+    always_ff @(posedge clk) begin
+        addr_sync <= addr[31:2];
+    end
+    
+    assign rd_data = mem[addr_sync];
 
 endmodule
