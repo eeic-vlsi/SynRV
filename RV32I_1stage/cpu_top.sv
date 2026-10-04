@@ -82,7 +82,7 @@ module cpu_top (
 
     dmem dmem_inst (
         .clk(clk),
-        .addr(dmem_addr),
+        .addr(alu_result),
         .wr_data(rs2_value),
         .is_load(is_load),
         .is_store(is_store),
